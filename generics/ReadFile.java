@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.lang.Comparable;
 
 public class ReadFile {
@@ -16,9 +17,14 @@ public class ReadFile {
     catch (IOException e) {
       System.out.println(e);
     }
+
+    //normal ordered
     System.out.println(dvdList);
-    System.out.println(dvdList.size());
     Collections.sort(dvdList);
+    //sorted by title using comparable
+    System.out.println(dvdList);
+    Collections.sort(dvdList, new GenreSort());
+    //sorted by genre using comparator
     System.out.println(dvdList);
   }
   public static void populateList (String str, ArrayList<DVDInfo> dvdList) {
@@ -37,6 +43,10 @@ class DVDInfo implements Comparable<DVDInfo>{
     return this.title;
   }
 
+  public String getGenre() {
+    return this.genre;
+  }
+
   DVDInfo (String t, String g, String a) {
     title = t; genre = g; leadActor = a;
   }
@@ -45,5 +55,11 @@ class DVDInfo implements Comparable<DVDInfo>{
   }
   public int compareTo(DVDInfo d) {
     return this.title.compareTo(d.getTitle());
+  }
+}
+
+class GenreSort implements Comparator<DVDInfo> {
+  public int compare(DVDInfo one, DVDInfo two) {
+    return one.getGenre().compareTo(two.getGenre());
   }
 }

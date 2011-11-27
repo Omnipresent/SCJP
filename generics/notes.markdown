@@ -140,6 +140,16 @@ LinkedHashMap   |               |             |             |
 ## Using the Collections Framework (Objectives 6.3 and 6.5)
 _6.3_ Write code that uses NavigableSet and NavigableMap interfaces_
 
-_6.5_ Use capabilitis in the java.util package to write code to manipulate a list by sorting, performing a binary search, or converting the list to an array.Use Comparator and Comparable. 
+_6.5_ Use capabilitis in the java.util package to write code to manipulate a list by sorting, performing a binary search, or converting the list to an array.Use Comparator and Comparable_
 
+### Comparing Comparable to Comparator
 
+java.lang.Comparable                                      | java.util.Comparator
+----------------------------------------------------------| --------------------------------------------------------------
+int objOne.compareto(objTwo)                              | int compare (objOne, objTwo)
+negative if objOne < objTwo                               | Same as Comparable
+zero     if objOne == objTwo                              |
+positive if objOne > onjTwo                               |
+Class whose instances need to be sorted must be modified  | Build a separate class
+Only one sort sequence can be created                     | Many sort sequences can be created
+Used by String, Wrapper classes, Date, Calendar           | Meant to be implemented to sort instances of third-party classes
