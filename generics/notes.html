@@ -1,0 +1,295 @@
+<h2>Chapter 7 - Generics</h2>
+
+<h2>Overriding hashCode() and equals() (Objective 6.2)</h2>
+
+<p><em>6.2 Distinguish between correct and incorrect overrides of corresponding hashCode and equals methods, and eplain the difference between == and equals method</em></p>
+
+<h3>Methods of Class Object Covered on the Exam</h3>
+
+<table>
+<thead>
+<tr>
+<th>Method                  </th>
+<th> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean equals (obj)    </td>
+<td> Decides whether two objects are meaningfully equivalent</td>
+</tr>
+<tr>
+<td>void finalize ()        </td>
+<td> Called by garbage collector when garbage collector sees that the object cannot be referenced</td>
+</tr>
+<tr>
+<td>int hashCode ()         </td>
+<td> Returns a hashcode int value for an object, so that the object can be used in Collection classes that use hasing, including hastable, hashmap and hashset</td>
+</tr>
+<tr>
+<td>final void notify ()    </td>
+<td> Wakes up a thread that is waiting for this object's lock.</td>
+</tr>
+<tr>
+<td>final void notifyAll()  </td>
+<td> Wakes up all the threads that are waiting for this object's lock.</td>
+</tr>
+<tr>
+<td>final void wait()       </td>
+<td> Causes the current thread to wait until another thread calls notify() or notifyAll on this object()</td>
+</tr>
+<tr>
+<td>String toString()       </td>
+<td> Returns a "text representation" of the object</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>equals() hashcode Key Points</h3>
+
+<ul>
+<li>If you want objects of your class to be used as keys for a hashtable (or elements in any datastructure that uses equivalency for searching), then you must override equals()</li>
+<li>If instanceof test is failed then ClassCastException is thrown</li>
+<li>equals() hashCode() and toString() are all <strong>public</strong></li>
+<li>Overridden = when argument is same. Overloaded = when the argument is changed</li>
+<li>HashCode that returns same value for everything is ineffecient but still legal hashcode</li>
+<li>don't use transient variables in hashCode() or equals() because they a deserialized object will have default value when brought back to life</li>
+</ul>
+
+
+<h3>HashCode Contract</h3>
+
+<table>
+<thead>
+<tr>
+<th>Condition                     </th>
+<th> Required                    </th>
+<th> Not Required (But Allowed)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x.equals(y) == true           </td>
+<td>x.hashCode() == y.hashCode() </td>
+<td></td>
+</tr>
+<tr>
+<td>x.hashCode() == y.hashCode()  </td>
+<td>                             </td>
+<td> x.equals(y) == true</td>
+</tr>
+<tr>
+<td>x.equals(y) == false          </td>
+<td>                             </td>
+<td> no HashCode() requirements</td>
+</tr>
+<tr>
+<td>x.hashCode() != y.hashCode()  </td>
+<td>x.equals(y) == false</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Collections (Exam Objective 6.1)</h2>
+
+<p>  <em>6.1 Given a scenario, determine which collection classes and/or interfaces should be used to properly implement that design, including the use of Comparable interface.</em></p>
+
+<h3>Key Interfaces for the exam</h3>
+
+<ul>
+<li>collection   |        Set          |  SortedSet</li>
+<li>List         |        Map          |  SortedMap</li>
+<li>Queue        |        NavigableSet |  NavigableMap</li>
+</ul>
+
+
+<h3>Key Concrete implementation classes</h3>
+
+<table>
+<thead>
+<tr>
+<th>Maps            </th>
+<th> Sets          </th>
+<th> Lists       </th>
+<th> Queues      </th>
+<th> Utilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap         </td>
+<td> HashSet       </td>
+<td>ArrayList    </td>
+<td>PriorityQueue</td>
+<td>Collections</td>
+</tr>
+<tr>
+<td>Hashtable       </td>
+<td> LinkedHashSet </td>
+<td>Vector       </td>
+<td>             </td>
+<td>Arrays</td>
+</tr>
+<tr>
+<td>TreeMap         </td>
+<td> TreeSet       </td>
+<td>LinkedList   </td>
+<td>             </td>
+<td></td>
+</tr>
+<tr>
+<td>LinkedHashMap   </td>
+<td>               </td>
+<td>             </td>
+<td>             </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Key Points</h3>
+
+<ul>
+<li>None of the Map related classes and interfaces extend from Collection</li>
+<li><em>Collection</em> is java.util.Collection interface from which Set, List, and Queue extend. There aren't any direct implementations of Collection</li>
+<li><em>Collections</em> is the java.util.Collections class that holds a pile of <em>static</em> utility methods for use with collections</li>
+<li><em>Collections</em> come in four basic flavors</li>
+<li>implementation class can be unsorted and unordered, ordered but unsorted, or both ordered and sorted. can never be sorted and unordered</li>
+<li>Remember the difference in interface vs. a concrete implementation class</li>
+</ul>
+
+
+<h3>List Interface</h3>
+
+<ul>
+<li>List cares about the index. One thing Lists have that non-list don't is index.</li>
+<li>All three list implementations are orderd by index position</li>
+</ul>
+
+
+<p><strong>ArrayList</strong></p>
+
+<ul>
+<li>Fast iteration and fast random access</li>
+<li>ordered but not sorted</li>
+<li>Choose it over LinkedList when you need fast iteration but aren't as likely to be doing a lot of insertion and deletion</li>
+</ul>
+
+
+<p><strong>Vector</strong></p>
+
+<ul>
+<li>Methods are synchronized</li>
+<li>Use ArrayList instead of Vector because synchronized methods add a performance hit</li>
+<li>If you need thread safety then there are utility methods in Collections class that can help</li>
+</ul>
+
+
+<p><strong>LinkedList</strong></p>
+
+<ul>
+<li>Elements are double-linked to one another</li>
+<li>Easy choice for implementing a stack or a queue</li>
+<li>May iterate more slowly than an ArrayList but its good when you need fast insertion and deletion</li>
+</ul>
+
+
+<h3>Set Interface</h3>
+
+<ul>
+<li>cares about uniqueness</li>
+<li>equals() determines whether two objects are identical</li>
+</ul>
+
+
+<p><strong>HashSet</strong></p>
+
+<ul>
+<li>unsorted and unordered.</li>
+<li>uses hashcode of the object being inserted. so more efficient hashCode() the better access performance you'll get</li>
+<li>Use it when you don't want duplicates and don't care about order when you iterate through it</li>
+<li>Must override hashCode()</li>
+</ul>
+
+
+<p><strong>LinkedHashSet</strong></p>
+
+<ul>
+<li>Ordered version of HashSet.</li>
+<li>Use it when elements need to be retrieved in the same order as they were inserted</li>
+<li>Must override hashCode()</li>
+</ul>
+
+
+<p><strong>TreeSet</strong></p>
+
+<ul>
+<li>One of two sorted collections (other being TreeMap)</li>
+<li>Gurantees that the elements will be in ascending order, according to natural order</li>
+<li>you can construct a TreeSet with a constructor that lets you give the collection your own rules for what the order should be by using Comparable or Comparator</li>
+<li>TreeSet implements NavigableSet</li>
+</ul>
+
+
+<h3>Map Interface</h3>
+
+<ul>
+<li>cares about unique identifiers</li>
+<li>relies on equals() to determine whether two keys are same or different</li>
+</ul>
+
+
+<p><strong>HashMap</strong></p>
+
+<ul>
+<li>unsorted, unordered map</li>
+<li>Use it when you need a Map and don't care about the order.</li>
+<li>order is based on key's hashcode.</li>
+<li>allows one null key and multiple null values in a collection</li>
+</ul>
+
+
+<p><strong>HashTable</strong></p>
+
+<ul>
+<li>has synchronized methods</li>
+<li>Doesn't let you have anything thats null</li>
+</ul>
+
+
+<p><strong>LinkedHashMap</strong></p>
+
+<ul>
+<li>Maintains insertion order.</li>
+<li>Slower than HashMap for adding and removing, but faster iteration</li>
+</ul>
+
+
+<p><strong>TreeMap</strong></p>
+
+<ul>
+<li>Sorted Map</li>
+<li>custom sort order can be defined by Comparable or Comparator</li>
+<li>Implements NavigableMap</li>
+</ul>
+
+
+<h3>Queue Interface</h3>
+
+<ul>
+<li>Designed to hold a list of todo's</li>
+<li>FIFO (first in first out)</li>
+</ul>
+
+
+<p><strong><em>Priority Queue</em></strong></p>
+
+<ul>
+<li>Priority in priority out</li>
+<li>ordered either by naturla ordering or according to a Comparator</li>
+</ul>
+
