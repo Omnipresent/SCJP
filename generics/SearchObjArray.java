@@ -4,6 +4,7 @@ class SearchObjArray {
   public static void main(String [] args) {
     String [] sa = {"bhaarat", "Ahuja", "sapan", "drake"};
 
+    System.out.println("\nSearch after reversed (Normal)\nsapan = " + Arrays.binarySearch(sa, "sapan")); // you get an undefined answer because its no longer natural order
     Arrays.sort(sa);
     printArray(sa);
     System.out.println("\nNormal Search sapan = " + Arrays.binarySearch(sa, "sapan"));
