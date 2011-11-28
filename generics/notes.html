@@ -293,3 +293,78 @@
 <li>ordered either by naturla ordering or according to a Comparator</li>
 </ul>
 
+
+<h2>Using the Collections Framework (Objectives 6.3 and 6.5)</h2>
+
+<p><em>6.3</em> Write code that uses NavigableSet and NavigableMap interfaces_</p>
+
+<p><em>6.5</em> Use capabilitis in the java.util package to write code to manipulate a list by sorting, performing a binary search, or converting the list to an array.Use Comparator and Comparable_</p>
+
+<h3>Comparing Comparable to Comparator</h3>
+
+<table>
+<thead>
+<tr>
+<th>java.lang.Comparable                                      </th>
+<th> java.util.Comparator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int objOne.compareto(objTwo)                              </td>
+<td> int compare (objOne, objTwo)</td>
+</tr>
+<tr>
+<td>negative if objOne &lt; objTwo                               </td>
+<td> Same as Comparable</td>
+</tr>
+<tr>
+<td>zero     if objOne == objTwo                              </td>
+<td></td>
+</tr>
+<tr>
+<td>positive if objOne > onjTwo                               </td>
+<td></td>
+</tr>
+<tr>
+<td>Class whose instances need to be sorted must be modified  </td>
+<td> Build a separate class</td>
+</tr>
+<tr>
+<td>Only one sort sequence can be created                     </td>
+<td> Many sort sequences can be created</td>
+</tr>
+<tr>
+<td>Used by String, Wrapper classes, Date, Calendar           </td>
+<td> Meant to be implemented to sort instances of third-party classes</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Sorting with the Arrays Class</h3>
+
+<ul>
+<li>Primitives are always sorted based on natural order</li>
+<li>Don't be fooled by questions that try to sort a primitive array using Comparator. Primitive arrays can not be sorted by Comparator</li>
+<li>sort() for both collections and Arrays are static methods. They alter the objects they are sorting, instead of returning a different sorted object</li>
+</ul>
+
+
+<h3>Searching Arrays and Collections</h3>
+
+<ul>
+<li>Searches are performed using binarySearch()</li>
+<li>successful searches return int index of the element being searched</li>
+<li>unsuccessful searches return an int index that represents the insertion point. Insertion point is in negative (-(insertion point)-1)</li>
+<li>collection/array being searched must be sorted before searching it.</li>
+<li>if the collection/array to be searched was sorted in natural order, it must be searched in natural order. (by NOT sending a Comparator as an argument to binarySearch()</li>
+<li>if the collection/array was sorted using a Comparator, then the same comparator must be used as argument in binarySearch()
+
+<ol>
+<li><strong>Searching an array or collection that hasn't been sorted</strong></li>
+<li><strong>Using comparator in either the sort or the searc, but not both</strong></li>
+</ol>
+</li>
+</ul>
+

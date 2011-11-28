@@ -153,3 +153,19 @@ positive if objOne > onjTwo                               |
 Class whose instances need to be sorted must be modified  | Build a separate class
 Only one sort sequence can be created                     | Many sort sequences can be created
 Used by String, Wrapper classes, Date, Calendar           | Meant to be implemented to sort instances of third-party classes
+
+### Sorting with the Arrays Class
+* Primitives are always sorted based on natural order
+* Don't be fooled by questions that try to sort a primitive array using Comparator. Primitive arrays can not be sorted by Comparator
+* sort() for both collections and Arrays are static methods. They alter the objects they are sorting, instead of returning a different sorted object
+
+### Searching Arrays and Collections
+* Searches are performed using binarySearch()
+* successful searches return int index of the element being searched
+* unsuccessful searches return an int index that represents the insertion point. Insertion point is in negative (-(insertion point)-1)
+* collection/array being searched must be sorted before searching it.
+* if the collection/array to be searched was sorted in natural order, it must be searched in natural order. (by NOT sending a Comparator as an argument to binarySearch()
+* if the collection/array was sorted using a Comparator, then the same comparator must be used as argument in binarySearch()
+  1. **Searching an array or collection that hasn't been sorted**
+  2. **Using comparator in either the sort or the searc, but not both**
+
