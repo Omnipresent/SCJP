@@ -1,5 +1,5 @@
 import java.util.*;
-
+//using lists
 public class IteratorTest {
   public static void main (String [] args) {
     List<Dog> dogs = new ArrayList<Dog>();
