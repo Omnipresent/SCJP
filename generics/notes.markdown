@@ -174,3 +174,5 @@ Used by String, Wrapper classes, Date, Calendar           | Meant to be implemen
 * List and Set classes have toArray() and Arrays class has asList()
 * Arrays.asList() = copies array into a list. When you update one of them, the other gets updated automatically
 
+### Using Maps
+* Remember that anything put as a key needs to have equals method overridden. Enums override equals() and hashCode()
