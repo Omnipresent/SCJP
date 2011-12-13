@@ -172,7 +172,12 @@ Used by String, Wrapper classes, Date, Calendar           | Meant to be implemen
 ### Converting Arrays to Lists to Arrays
 * couple methods that allow converting arrays to Lists, and Lists to arrays. 
 * List and Set classes have toArray() and Arrays class has asList()
-* Arrays.asList() = copies array into a list. When you update one of them, the other gets updated automatically
+* Arrays.asList() = copies array into a list. When you update one of them, the other gets updated automatically. Look at MapTest.java
 
 ### Using Maps
 * Remember that anything put as a key needs to have equals method overridden. Enums override equals() and hashCode()
+* Remember that once instance of a class has been made a key, next time it uses that referece. doesn't matter what you pass in as a consutrctor param. Look at MapTest.java
+
+### Navigation TreeSets and TreeMaps
+* In java5 you had to use headSet() and tailSet(), but in java6 you can use lower and higher. 
+

@@ -3,7 +3,7 @@ import java.util.*;
 //using Maps
 
 class Dog {
-  public Dog (String n) {name = n;}
+  public Dog (String n) {System.out.println("in constructor");this.name = n;System.out.println("name = " + this.name);}
   public String name;
   public boolean equals (Object o) {
     if ((o instanceof Dog) && (((Dog)o).name == name)) {
@@ -37,5 +37,16 @@ class MapTest {
     System.out.println(m.get(d1));
     System.out.println(m.get(new Cat()));
     System.out.println(m.size());
+
+    //what happens when object used as key has its values change?
+    d1.name = "bob";
+    System.out.println("When d1.name = bob: " + m.get(d1));
+    d1.name = "clover";
+    System.out.println("When d1.name = clover: " + m.get(new Dog("clover")));
+    d1.name = "arthur";
+    System.out.println("When d1.name = arthur: " + m.get(new Dog("")));
+
+    System.out.println("Pets.CAT: " + m.get(Pets.CAT));
+
   }
 }
