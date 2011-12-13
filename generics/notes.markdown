@@ -180,4 +180,13 @@ Used by String, Wrapper classes, Date, Calendar           | Meant to be implemen
 
 ### Navigation TreeSets and TreeMaps
 * In java5 you had to use headSet() and tailSet(), but in java6 you can use lower and higher. 
+* NavigableMap and NavigableSet have lower() floor() higher() ceiling(). lower < but floor gt=to
+* descendingSet and descendingKeyMap return stuff in descending order
 
+### Backed Collections
+* when you create a submap, adding a key-value pair to either the original map or partial copy, the new entries are automagically added in the other collection
+* When you create a submap by defining a range, it follows that rule when partial copy is created and also what can be added to the map from there on
+* out of range stuff can still be added to original but not to submap
+* Importnant Backed Collection methods for TreeSet and TreeMap
+* Invoking pollFirstXxx() on the copy CAN remove an entry from both collections (tail or sub) if an element is in both, however, invoking it on originla will remove only the entry from original
+* ended on page 591
