@@ -207,3 +207,18 @@ binarySearch(List, key, comparator)     | search a sorted list for a given value
 reverse(List)                           | Reverse the order of the list 
 reverseOrder(), reverseOrder(Comparator)| return a Comparator that sorts the reverse of the current
 sort(List), sort(List, Comparator)      | Sort a list by natural or Comparator
+
+Generic Types
+=============
+
+_6.3 Write code that uses the generic versions of the Collections API, in particular the Set,
+List, and Map interfaces and implementation classes. Recognize the limitations of the nongeneric
+Collections API and how to refactor code to use the generic versions._
+_6.4 Develop code that makes proper use of type parameters in class/interface declarations,
+instance variables, method arguments, and return types; and write generic methods or
+methods that make use of wildcard types and understand the similarities and differences
+between these two approaches. Write code that uses the NavigableSet and NavigableMap
+interfaces._
+
+* ended at 641
+
