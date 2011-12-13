@@ -172,5 +172,38 @@ Used by String, Wrapper classes, Date, Calendar           | Meant to be implemen
 ### Converting Arrays to Lists to Arrays
 * couple methods that allow converting arrays to Lists, and Lists to arrays. 
 * List and Set classes have toArray() and Arrays class has asList()
-* Arrays.asList() = copies array into a list. When you update one of them, the other gets updated automatically
+* Arrays.asList() = copies array into a list. When you update one of them, the other gets updated automatically. Look at MapTest.java
 
+### Using Maps
+* Remember that anything put as a key needs to have equals method overridden. Enums override equals() and hashCode()
+* Remember that once instance of a class has been made a key, next time it uses that referece. doesn't matter what you pass in as a consutrctor param. Look at MapTest.java
+
+### Navigation TreeSets and TreeMaps
+* In java5 you had to use headSet() and tailSet(), but in java6 you can use lower and higher. 
+* NavigableMap and NavigableSet have lower() floor() higher() ceiling(). lower < but floor gt=to
+* descendingSet and descendingKeyMap return stuff in descending order
+
+### Backed Collections
+* when you create a submap, adding a key-value pair to either the original map or partial copy, the new entries are automagically added in the other collection
+* When you create a submap by defining a range, it follows that rule when partial copy is created and also what can be added to the map from there on
+* out of range stuff can still be added to original but not to submap
+* Importnant Backed Collection methods for TreeSet and TreeMap
+* Invoking pollFirstXxx() on the copy CAN remove an entry from both collections (tail or sub) if an element is in both, however, invoking it on originla will remove only the entry from original
+
+### Key Methods in Arrays
+Method                            | Description 
+--------------------------------- | --------------------------------------------------
+asList(T[])                       | Convert an array to a list and bind them
+binarySearch(Object[], key)       | Search a sorted array for a value and return an index or insertion point
+binarySEarch(T[],key,Comparator)  | Search a Comparator sorted array for a value
+equals(Object[], Object[])        | Compare two arrays to see if their contents are equal
+sort(Object[])                    | sort by natural order
+sort(T[], Comparator)             | sort by Comparator
+
+### Key Methods in Collections
+Method                                  | Description 
+--------------------------------------  | --------------------------------------------------
+binarySearch(List, key, comparator)     | search a sorted list for a given value, return an index or insertion point
+reverse(List)                           | Reverse the order of the list 
+reverseOrder(), reverseOrder(Comparator)| return a Comparator that sorts the reverse of the current
+sort(List), sort(List, Comparator)      | Sort a list by natural or Comparator
