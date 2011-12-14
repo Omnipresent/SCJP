@@ -7,7 +7,7 @@ Exam Watch
 * When using legacy (non-type safe) collections - watch out for unboxing problems! if you declare a non-generic collection, the get() method ALWAYS returns a reference of type java.lang.Object. 
 Remember that unboxing cant convert a plain old Object to a primitive, even if that Object refence refers to an Integer (or some other wrapped primitive) on the heap. 
 Unboxing converts only from a wrapper class reference (like an Integer or a Long) to a primitive.
-    
+
 
       List test = new ArrayList();
       test.add(43);
