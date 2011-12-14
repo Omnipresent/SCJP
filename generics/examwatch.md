@@ -9,11 +9,12 @@ Remember that unboxing cant convert a plain old Object to a primitive, even if t
 Unboxing converts only from a wrapper class reference (like an Integer or a Long) to a primitive.
 
 
-      List test = new ArrayList();
-      test.add(43);
-      int x = (Integer) test.get(0) //must cast!!
-      List<Integer> test2 = new ArrayList<Integer>();
-      test2.add(343);
-      int x2 = test2.get(0);
+        List test = new ArrayList();
+        test.add(43);
+        int x = (Integer) test.get(0) //must cast!!
+        List<Integer> test2 = new ArrayList<Integer>();
+        test2.add(343);
+        int x2 = test2.get(0);
+
 
 * test
