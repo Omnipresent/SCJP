@@ -17,4 +17,5 @@ Unboxing converts only from a wrapper class reference (like an Integer or a Long
         int x2 = test2.get(0);
 
 
-* test
+* polymorphism doesnt work the same way with for generics as it does with arrays
+* 

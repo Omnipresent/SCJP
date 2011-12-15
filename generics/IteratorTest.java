@@ -22,6 +22,9 @@ public class IteratorTest {
       Dog d2 = (Dog) o;
       System.out.println("Dog Name in Array: " + d2.name);
     }
+    TreeSet t = new TreeSet();
+    t.add("s");
+    t.add("1");
   }
 }
 class Dog {

@@ -220,5 +220,13 @@ methods that make use of wildcard types and understand the similarities and diff
 between these two approaches. Write code that uses the NavigableSet and NavigableMap
 interfaces._
 
-* ended at 641
+* if it is not `? super <classname>` then the method can not ADD to the list
 
+
+    public void addAnimal(List <? extends Animal> animals) {
+      animals.add(new Dog()); //ERROR
+    }
+
+    public void addAnimal(List <? super Dog> animals) {
+      animals.add(new Dog()); //Fine
+    }
