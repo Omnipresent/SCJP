@@ -18,4 +18,4 @@ Unboxing converts only from a wrapper class reference (like an Integer or a Long
 
 
 * polymorphism doesnt work the same way with for generics as it does with arrays
-* 
+* its okay for a class to implement serializable even if its superclass doesnt. however, when you deserialize such an object, the non-serializable superclass must run its consutrctor
