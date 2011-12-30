@@ -22,5 +22,18 @@ class LiteralsPrimitives{
     System.out.println("d = " + d);
     System.out.println("f = " + f);
 
+    int yq=0;
+    int [] ai = new int [6];
+    System.out.println(ai[0]);
+    System.out.println(yq);
+    int [] testScore;
+    testScore = new int []{5,3};
+    byte by =12;
+    String ch = "bhaarat";
+    System.out.println(ch);
+    changeString (ch);
+    System.out.println(ch);
+    int [][] a = {{1,2}, {3,4}};
   }
+  static String changeString (String s) {s = "s"; return s;}
 }
